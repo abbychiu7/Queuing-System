@@ -1,2 +1,2 @@
-# Queueing-System
+# Queuing-System
 APPDAET Final Project
