@@ -5,12 +5,17 @@ import reports
 from tabulate import tabulate
 from colorama import init, Fore, Style
 
+"""
+Submitted by: Group 5
+Members (Surnames): Cacanindin, Chiu, and Turla
+Subject: APPDAET
+"""
+
 # Initialize colorama
 init(autoreset=True)
 
 SEPARATOR = "=" * 60
 SubSeparator = "=" * 60
-
 
 
 def main():
@@ -22,7 +27,6 @@ def main():
         f"{Fore.BLUE}{Style.BRIGHT}{SEPARATOR}{Style.RESET_ALL}\n")
     while True:
         choice = menu.show_menu()
-
 
         if choice == "1":
             name = input(f"{Fore.CYAN}Enter name: {Style.RESET_ALL}").strip()
@@ -50,7 +54,8 @@ def main():
             q = qm.get_queue()
             if q:
                 table = [[t['id'], t['name']] for t in q]
-                print(f"{Fore.BLUE}{Style.BRIGHT}\n{SubSeparator}{Style.RESET_ALL}\nCurrent Queue:\n{Fore.BLUE}{Style.BRIGHT}{SubSeparator}{Style.RESET_ALL}")
+                print(
+                    f"{Fore.BLUE}{Style.BRIGHT}\n{SubSeparator}{Style.RESET_ALL}\nCurrent Queue:\n{Fore.BLUE}{Style.BRIGHT}{SubSeparator}{Style.RESET_ALL}")
                 print(tabulate(table, headers=[Fore.CYAN + "Ticket ID" + Style.RESET_ALL,
                                                Fore.CYAN + "Name" + Style.RESET_ALL], tablefmt="fancy_grid"))
 
@@ -61,7 +66,8 @@ def main():
             logs = lg.read_logs()
             if logs:
                 table = [line.strip().split("|") for line in logs]
-                print(f"{Fore.BLUE}{Style.BRIGHT}\n{SubSeparator}{Style.RESET_ALL}\nTransaction Logs:{Fore.BLUE}{Style.BRIGHT}\n{SubSeparator}{Style.RESET_ALL}")
+                print(
+                    f"{Fore.BLUE}{Style.BRIGHT}\n{SubSeparator}{Style.RESET_ALL}\nTransaction Logs:{Fore.BLUE}{Style.BRIGHT}\n{SubSeparator}{Style.RESET_ALL}")
                 print(tabulate(table, headers=[Fore.CYAN + "Action" + Style.RESET_ALL,
                                                Fore.CYAN + "Details" + Style.RESET_ALL], tablefmt="fancy_grid"))
 

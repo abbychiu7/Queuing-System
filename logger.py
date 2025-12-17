@@ -1,4 +1,3 @@
-# logger.py
 from datetime import datetime
 
 LOG_FILE = "ticket_logs.txt"

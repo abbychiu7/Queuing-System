@@ -1,5 +1,6 @@
 import logger
 
+
 def generate_summary():
     """Parse logs and produce a simple activity summary."""
     lines = logger.read_logs()

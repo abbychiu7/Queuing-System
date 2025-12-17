@@ -4,6 +4,7 @@ from colorama import Fore, Style, init
 # Initialize colorama
 init(autoreset=True)
 
+
 def show_menu():
     menu_items = [
         ["[1]", "Issue ticket"],
