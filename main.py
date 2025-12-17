@@ -81,7 +81,7 @@ def main():
                 ["Total Served", summary['served']],
                 ["Currently in Queue", summary['in_queue']]
             ]
-            print(f"{Fore.CYAN}{Style.BRIGHT}\n{SEPARATOR}\nReport Summary:{Style.RESET_ALL}\n{SEPARATOR}")
+            print(f"{Fore.BLUE}{Style.BRIGHT}\n{SEPARATOR}{Style.RESET_ALL}\nReport Summary:{Fore.BLUE}{Style.BRIGHT}\n{SEPARATOR}{Style.RESET_ALL}")
             print(tabulate(table, tablefmt="fancy_grid"))
 
 
