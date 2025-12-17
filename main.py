@@ -8,12 +8,21 @@ from colorama import init, Fore, Style
 # Initialize colorama
 init(autoreset=True)
 
-def main():
-    print(f"{Fore.MAGENTA}{Style.BRIGHT}Welcome to the Queuing App (FIFO){Style.RESET_ALL}\n")
+SEPARATOR = "=" * 60
+SubSeparator = "=" * 60
 
+
+
+def main():
+    print(
+        f"{Fore.BLUE}{Style.BRIGHT}\n{SEPARATOR}")
+    print(
+        f"\t\t     Welcome to the Queuing App (FIFO)")
+    print(
+        f"{Fore.BLUE}{Style.BRIGHT}{SEPARATOR}{Style.RESET_ALL}\n")
     while True:
         choice = menu.show_menu()
-        print()  # spacing
+
 
         if choice == "1":
             name = input(f"{Fore.CYAN}Enter name: {Style.RESET_ALL}").strip()
@@ -41,10 +50,10 @@ def main():
             q = qm.get_queue()
             if q:
                 table = [[t['id'], t['name']] for t in q]
-                print(f"{Fore.BLUE}{Style.BRIGHT}Current Queue:{Style.RESET_ALL}")
+                print(f"{Fore.BLUE}{Style.BRIGHT}\n{SubSeparator}{Style.RESET_ALL}\nCurrent Queue:\n{Fore.BLUE}{Style.BRIGHT}{SubSeparator}{Style.RESET_ALL}")
                 print(tabulate(table, headers=[Fore.CYAN + "Ticket ID" + Style.RESET_ALL,
                                                Fore.CYAN + "Name" + Style.RESET_ALL], tablefmt="fancy_grid"))
-                print()
+
             else:
                 print(f"{Fore.YELLOW}Queue is empty.{Style.RESET_ALL}\n")
 
@@ -52,10 +61,10 @@ def main():
             logs = lg.read_logs()
             if logs:
                 table = [line.strip().split("|") for line in logs]
-                print(f"{Fore.BLUE}{Style.BRIGHT}Transaction Logs:{Style.RESET_ALL}")
+                print(f"{Fore.BLUE}{Style.BRIGHT}\n{SubSeparator}{Style.RESET_ALL}\nTransaction Logs:{Fore.BLUE}{Style.BRIGHT}\n{SubSeparator}{Style.RESET_ALL}")
                 print(tabulate(table, headers=[Fore.CYAN + "Action" + Style.RESET_ALL,
                                                Fore.CYAN + "Details" + Style.RESET_ALL], tablefmt="fancy_grid"))
-                print()
+
             else:
                 print(f"{Fore.YELLOW}No logs yet.{Style.RESET_ALL}\n")
 
@@ -66,18 +75,19 @@ def main():
                 ["Total Served", summary['served']],
                 ["Currently in Queue", summary['in_queue']]
             ]
-            print(f"{Fore.CYAN}{Style.BRIGHT}Report Summary:{Style.RESET_ALL}")
+            print(f"{Fore.CYAN}{Style.BRIGHT}\n{SEPARATOR}\nReport Summary:{Style.RESET_ALL}\n{SEPARATOR}")
             print(tabulate(table, tablefmt="fancy_grid"))
-            print()
+
 
         elif choice == "0":
-            print(f"{Style.BRIGHT}Goodbye!{Style.RESET_ALL}")
+            print(f"{Style.BRIGHT}{SEPARATOR}\nGoodbye!\n{SEPARATOR}{Style.RESET_ALL}")
             break
 
         else:
             print(f"{Fore.RED}Invalid choice. Please select 0-5.{Style.RESET_ALL}\n")
 
-    print("Exiting...")
+    print(f"{Style.BRIGHT}Exiting...{Style.RESET_ALL}")
+
 
 if __name__ == "__main__":
     main()
